@@ -12,7 +12,7 @@ def BFS(T, Px, Py):
     global ans, Stop, t
     if (Px, Py) in Visited:
         return None
-    if map[Px][Py] == 'F' or map[Px][Py] == '*':
+    if (map[Px][Py] == 'F' and not (Px, Py) in NewFire) or map[Px][Py] == '*':
         return None
     if map[Px][Py] == 'E':
         ans = T
