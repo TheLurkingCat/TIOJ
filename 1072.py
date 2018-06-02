@@ -1,11 +1,8 @@
 from operator import itemgetter
-while True:
+a = int(input())
+while a:
     total = 0
     b = 0
-    try:
-        a = int(input())
-    except EOFError:
-        break
     books = []
     for _ in range(a):
         books.append(tuple([int(x) for x in input().split()]))
@@ -14,3 +11,4 @@ while True:
         total += x
         b = max(b, total+y)
     print(b)
+    a = int(input())
