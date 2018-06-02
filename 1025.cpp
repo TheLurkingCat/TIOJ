@@ -1,85 +1,93 @@
 #include <stdio.h>
-#include <iostream>
 #include <stdlib.h>
-using namespace std ;
-int table[9][9], ans=0;
+#include <iostream>
 
-bool check_x(int x, int y, int value) //ÀË¬d¾îªº¦³µL­«½Æ 
-{
-    for (int i=0; i<9; i++)
-       {
-        if (y == i) continue;
-        if (value == table[x][i]) return 1; //¦³­«½Æ 
-       }
-    return 0;
-}
+using namespace std;
+int table[9][9], ans = 0;
 
-bool check_y(int x, int y, int value) //ÀË¬dª½ªº¦³µL­«½Æ 
+bool check_x(int x, int y, int value)  //ï¿½Ë¬dï¿½îªºï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½
 {
-    for (int i=0; i<9; i++)
-       {
-         if (x == i) continue;
-         if (value == table[i][y]) return 1; //¦³­«½Æ 
-       }
-    return 0;
-}
-
-bool check_square(int x, int y, int value) //ÀË¬d¦b¤p¤E®c®æ¤º¦³µL­«½Æ 
-{
-	int checkx = x,checky = y,checkx3,checky3;
-	for(;checkx%3 != 0 ; --checkx){}
-	for(;checky%3 != 0 ; --checky){}
-	checkx3 = checkx + 3;
-	checky3 = checky + 3;
-    for (int i=checkx; i<checkx3; i++){
-		for(int j=checky ; j<checky3 ; j++){
-			if (y == i) continue;
-      		if (value == table[i][j]) return 1; //¦³­«½Æ
-      }
-   	}
-    return 0;
-}
-      
-void DFS(int pos)
-{ int x,y;
-  x=pos/9;
-  y=pos%9;  
-      
-  if (pos == 81){
-      ans++;
-      //printf("\n");
-      for (int i=0; i<9; i++){
-        for (int j=0; j<9; j++)printf("%d ",table[i][j]);
-        printf("\n");
-      }
-      printf("\n");
-      return;
-  }
-    
- if(!table[x][y]){ 
-    for (int i=1; i<=9; i++)
-    {
-        if ( check_x(x, y, i) ) continue;
-        if ( check_y(x, y, i) ) continue;
-        if ( check_square(x, y, i) ) continue;
-        table[ x ][ y ] = i;
-        DFS(pos + 1);    
+    for (int i = 0; i < 9; i++) {
+        if (y == i)
+            continue;
+        if (value == table[x][i])
+            return 1;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     }
-    table[ x ][ y ] = 0;
- }
- else{
-  DFS(pos + 1);
- }   
+    return 0;
 }
 
-int main()
+bool check_y(int x, int y, int value)  //ï¿½Ë¬dï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½
 {
-        ans = 0;
-        for (int i=0; i<9; i++)
-            for (int j=0; j<9; j++)
-                scanf("%d",&table[i][j]);
-				   
-        DFS(0);
-        printf("there are a total of %d solution(s).\n", ans);
+    for (int i = 0; i < 9; i++) {
+        if (x == i)
+            continue;
+        if (value == table[i][y])
+            return 1;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    }
+    return 0;
+}
+
+bool check_square(int x, int y, int value)  //ï¿½Ë¬dï¿½bï¿½pï¿½Eï¿½cï¿½æ¤ºï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½
+{
+    int checkx = x, checky = y, checkx3, checky3;
+    for (; checkx % 3 != 0; --checkx) {
+    }
+    for (; checky % 3 != 0; --checky) {
+    }
+    checkx3 = checkx + 3;
+    checky3 = checky + 3;
+    for (int i = checkx; i < checkx3; i++) {
+        for (int j = checky; j < checky3; j++) {
+            if (y == i)
+                continue;
+            if (value == table[i][j])
+                return 1;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        }
+    }
+    return 0;
+}
+
+void DFS(int pos) {
+    int x, y;
+    x = pos / 9;
+    y = pos % 9;
+
+    if (pos == 81) {
+        ans++;
+        // printf("\n");
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++)
+                printf("%d ", table[i][j]);
+            printf("\n");
+        }
+        printf("\n");
+        return;
+    }
+
+    if (!table[x][y]) {
+        for (int i = 1; i <= 9; i++) {
+            if (check_x(x, y, i))
+                continue;
+            if (check_y(x, y, i))
+                continue;
+            if (check_square(x, y, i))
+                continue;
+            table[x][y] = i;
+            DFS(pos + 1);
+        }
+        table[x][y] = 0;
+    } else {
+        DFS(pos + 1);
+    }
+}
+
+int main() {
+    ans = 0;
+    for (int i = 0; i < 9; i++)
+        for (int j = 0; j < 9; j++)
+            scanf("%d", &table[i][j]);
+
+    DFS(0);
+    printf("there are a total of %d solution(s).\n", ans);
     return 0;
 }
