@@ -6,7 +6,7 @@ if a + c == b + b:
     output.append('arithmetic')
 a = a * c
 k = b * b
-if  a == k and a != 0 and k != 0:
+if a == k and a != 0 and k != 0:
     output.append('geometric')
 if output:
     if len(output) == 2:

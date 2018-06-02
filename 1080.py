@@ -11,6 +11,8 @@ def insertion_sort(lst):
             j -= 1
         lst[j + 1] = temp
     return ans
+
+
 c = int(input())
 while c:
     a = [int(x) for x in input().split()]

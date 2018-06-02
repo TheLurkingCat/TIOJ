@@ -1,6 +1,8 @@
 from queue import Queue
 Hit = False
 Stop = False
+
+
 def BFS(x, y, z):
     global Hit, Stop
     if (x, y, z) in visited or Stop:
@@ -19,6 +21,8 @@ def BFS(x, y, z):
     t2 = 2 * x - y - 1
     if -1 < t1 < n+1 and -1 < t2 < n+1:
         BFS_Queue.put((t1, t2, z))
+
+
 n, x, y, z, *target = [int(x) for x in input().split()]
 while n:
     BFS_Queue = Queue()

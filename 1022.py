@@ -1,5 +1,7 @@
 from queue import Queue
 run = True
+
+
 def BFS(step, x, y, h):
     global run, ans
     if (x, y) in visited:
@@ -17,6 +19,8 @@ def BFS(step, x, y, h):
     BFS_Queue.put((step, x, y+1, h))
     BFS_Queue.put((step, x-1, y, h))
     BFS_Queue.put((step, x, y-1, h))
+
+
 a = int(input())
 for _ in range(a):
     visited = set()

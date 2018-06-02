@@ -8,6 +8,8 @@ Stop = False
 BFS_Queue = Queue()
 ans = 'Help!'
 t = 0
+
+
 def BFS(T, Px, Py):
     global ans, Stop, t
     if (Px, Py) in Visited:
@@ -26,6 +28,8 @@ def BFS(T, Px, Py):
     if t != T:
         BFS_Queue.put('Fire')
         t += 1
+
+
 def fire_raging():
     global map
     NewFire.clear()
@@ -56,7 +60,10 @@ def fire_raging():
                         NewFire.add((x, y-1))
                 except IndexError:
                     pass
-map = [list('*****************'), list('*...*.......**..*'), list('**..*....*.*.*..*'), list('*......*.**.**.**'), list('*..**...**..**.**'), list('**.....**..*.*..*'), list('*....*..........*'), list('*.....****.*...**'), list('****.*.*........*'), list('*****************')]
+
+
+map = [list('*****************'), list('*...*.......**..*'), list('**..*....*.*.*..*'), list('*......*.**.**.**'), list('*..**...**..**.**'),
+       list('**.....**..*.*..*'), list('*....*..........*'), list('*.....****.*...**'), list('****.*.*........*'), list('*****************')]
 Fx, Fy = [int(x) for x in input().split()]
 T = int(input())
 Sx, Sy, Ex, Ey = [int(x) for x in input().split()]

@@ -25,10 +25,12 @@ while True:
             if special and char in s:
                 special = False
         if up:
-            print('Password should contain at least one upper-case alphabetical character.')
+            print(
+                'Password should contain at least one upper-case alphabetical character.')
             continue
         if low:
-            print('Password should contain at least one lower-case alphabetical character.')
+            print(
+                'Password should contain at least one lower-case alphabetical character.')
             continue
         if digit:
             print('Password should contain at least one number.')
@@ -55,4 +57,3 @@ while True:
                 break
         else:
             print('Password is valid.')
-            

@@ -7,6 +7,8 @@ def Search(number, t):
             t //= 2
         step += 1
     return step
+
+
 a = int(input())
 t = int(input())
 ans = Search(a, t)

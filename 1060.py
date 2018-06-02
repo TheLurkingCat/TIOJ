@@ -1,5 +1,7 @@
 f_dict = {}
 h_dict = {}
+
+
 def f(x):
     if x in f_dict:
         return f_dict[x]
@@ -14,6 +16,8 @@ def f(x):
     else:
         f_dict[x] = 1
         return 1
+
+
 def h(x):
     if x in h_dict:
         return h_dict[x]
@@ -22,10 +26,13 @@ def h(x):
         return h_dict[x]
     h_dict[x] = 2 + h(x-1) - h(x-2)
     return h_dict[x]
+
+
 def g(x):
     if x <= 2:
-       return pow(x, 2) - 1
+        return pow(x, 2) - 1
     return 2
+
 
 for a in range(0, 600):
     f(300-a)

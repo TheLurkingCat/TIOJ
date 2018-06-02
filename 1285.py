@@ -5,10 +5,10 @@ while True:
         break
     ans = 0
     if a < b:
-        a, b = b ,a
+        a, b = b, a
     while True:
         try:
-            div , mod = divmod(a, b)
+            div, mod = divmod(a, b)
         except ZeroDivisionError:
             break
         ans += div

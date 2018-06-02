@@ -9,4 +9,4 @@ if m2 < 0:
     m2 += 60
     h2 -= 1
 h2 %= 24
-print('{:02d}:{:02d}:{:02d}'.format(h2,m2,s2))
+print('{:02d}:{:02d}:{:02d}'.format(h2, m2, s2))
