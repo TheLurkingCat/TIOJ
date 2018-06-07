@@ -10,14 +10,10 @@ int main() {
     while (k--) {
         ans = 0;
         getR = getG = getB = getY = getP = true;
-        for (int i = 0;
-             i < 72;
-             i++) {
+        for (int i = 0; i < 72; i++) {
             cin >> now[i];
         }
-        for (int i = 0;
-             i < 72;
-             i++) {
+        for (int i = 0; i < 72; i++) {
             if (ans == 5) break;
             if (getR && now[i] == 'R') {
                 ans++;

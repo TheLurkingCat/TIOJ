@@ -12,12 +12,10 @@ int main() {
     int64_t n, max, a, b, c, d;
     TV tv[3500];
     while (cin >> n && n) {
-        for (int i = 1; i <= n; i++)
-            cin >> tv[i].x >> tv[i].y;
+        for (int i = 1; i <= n; i++) cin >> tv[i].x >> tv[i].y;
         max = -1;
         for (int i = 1; i <= n - 1; i++) {
-            for (int j = i + 1; j <= n;
-                 j++) {
+            for (int j = i + 1; j <= n; j++) {
                 c = tv[i].x - tv[j].x;
                 d = tv[i].y - tv[j].y;
                 if (max < c * c + d * d) {
