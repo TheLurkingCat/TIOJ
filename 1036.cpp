@@ -12,7 +12,6 @@ int main() {
     for (int i = 2; i < MAX; i++) {
         ans[i] = primes + prime[i];
         if (prime[i]) {
-            cout << i << ',';
             primes++;
             for (uint64_t j = (uint64_t)i * i; j < MAX; j += i) {
                 prime[j] = false;
